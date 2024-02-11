@@ -19,10 +19,10 @@ export default function Results (props){
 
     {props.data.meanings.map(function (meaning, index){
 return (
-    <div key={index}>
-        <Meaning meaning= {meaning}/>
-    </div>
-)
+  <div  key={index}>
+    <Meaning meaning={meaning} />
+  </div>
+);
     })
     }
         
