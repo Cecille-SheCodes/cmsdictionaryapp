@@ -5,8 +5,9 @@ body{
 
 .App {
   display: block;
-  background-color: #8f9ebc;
-  margin: 100px auto;
+  background-color: #d5dce8;
+  margin: 50px auto;
+  padding: 10px;
   max-width: 400px;
   text-align: center;
   border-radius: 10px;
@@ -26,6 +27,15 @@ body{
 
 input{
   line-height: 40px;
-  max-width: 170px;
   margin: auto 5px;
+
+}
+
+.btn{
+max-width: 80px;  
+font-size: smaller;
+}
+
+.Meaning{
+  margin-top: 20px;
 }

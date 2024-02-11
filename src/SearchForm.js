@@ -1,13 +1,16 @@
 import React, {useState} from "react";
 import "./App.css";
 import axios from "axios";
+import Results from "./Results";
 
 export default function SearchForm () {
 
     let [keyword,setKeyword] = useState("");
+    let [results, setResults] = useState(false);
 
     function HandleResponse(response){
-        console.log(response.data[0]);
+        console.log(response.data);
+        setResults(response.data[0]);
     }
 
     function Search(event){
@@ -25,7 +28,7 @@ export default function SearchForm () {
     
     
     return (
-      <div>
+      <div className="SearchedWord">
         <form >
           <input
             type="search"
@@ -35,6 +38,8 @@ export default function SearchForm () {
           />
           <input className="btn btn-primary" value="Search" onClick={Search}/>
         </form>
+        <br/>
+        <Results data={results}/>
       </div>
     );
 }
