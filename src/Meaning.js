@@ -14,9 +14,9 @@ export default function Meaning (props){
               <div key={index}>
                 <br />
                 <p class="text-sm-left m-2">{definition.definition}</p>
-                <em class="text-primary text-sm-left " mt="1">
+                <strong><em class="text-info text-sm-left " mt="1">
                   {definition.example}
-                </em>
+                </em></strong>
               </div>
             );
           })}

@@ -36,7 +36,7 @@ export default function SearchForm () {
             autoFocus={true}
             onChange={HandleKeyword}
           />
-          <input className="btn btn-primary" value="Search" onClick={Search}/>
+          <input className="btn btn-info" value="Search" onClick={Search}/>
         </form>
         <br/>
         <Results data={results}/>

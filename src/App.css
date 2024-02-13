@@ -5,7 +5,7 @@ body{
 
 .App {
   display: block;
-  background-color: #d5dce8;
+  background-color: #f3e3f6;
   margin: 50px auto;
   padding: 10px;
   max-width: 400px;
@@ -37,4 +37,8 @@ font-size: smaller;
 
 .Meaning{
   margin-top: 20px;
+}
+
+.footer{
+  font-size: 10px;
 }
