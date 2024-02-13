@@ -1,5 +1,7 @@
 import React from "react";
 import Meaning from "./Meaning";
+import Phonetics from "./Phonetics";
+
 
 export default function Results (props){
     console.log(props.data);
@@ -12,9 +14,8 @@ export default function Results (props){
       <div className="results">
         <h1>{props.data.word}</h1>
         <h5> {props.data.phonetic}</h5>
-        <div>
-          <audio controls src={props.data.phonetics[0].audio} />
-        </div>
+
+        <Phonetics phonetics={props.data.phonetics[0]} />
 
         {props.data.meanings.map(function (meaning, index) {
           return (
@@ -25,6 +26,7 @@ export default function Results (props){
         })}
       </div>
     );}
+
     else{
         return null;
     }

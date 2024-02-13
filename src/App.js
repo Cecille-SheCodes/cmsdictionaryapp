@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="container">
       <div className="App">
-        <h1 className="header"> My Dictionary App</h1>
+        <h1 className="header text-info"> My Dictionary App</h1>
        <SearchForm />
         <br />
         <p className="footer">

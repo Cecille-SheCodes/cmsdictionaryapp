@@ -21,8 +21,7 @@ body{
   font-weight: 900;
   padding:40px 5px;
   margin:20px;
-  color: rgb(11, 94, 215);
-  text-shadow: 2px 3px rgb(248, 242, 242);
+  text-shadow: 2px 3px rgb(210, 199, 231);
 }
 
 input{
