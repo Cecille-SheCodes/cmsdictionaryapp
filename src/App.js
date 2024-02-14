@@ -5,7 +5,7 @@ import SearchForm from './SearchForm';
 function App() {
   return (
     <div className="container">
-      <section>
+      <section className="main">
         <h1 className="header"> My Dictionary App</h1>
         <SearchForm defaultKeyword="pet"/>
       </section>

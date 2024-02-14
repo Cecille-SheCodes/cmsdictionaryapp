@@ -5,8 +5,7 @@ body{
 }
 .container{
   max-width: 960px;
-  
-}
+  }
 section{
    background-color:  #fae3d9;
    display:block;
@@ -16,11 +15,13 @@ section{
    border-radius: 4px;
   box-shadow: 1px 1px 2px 1px rgb(113, 112, 112);
 }
-
+.main{
+  background-color: #f67280; 
+}
 .header{
   font-size:25px;
   font-stretch: extra-expanded;
-  color: #6c5b7c; 
+  color: rgb(78, 3, 74);
   font-weight: 900;
   padding:20px 5px;
   margin:20px;
@@ -37,8 +38,7 @@ input{
 
 .btn{
 max-width: 80px;  
-font-size: smaller;
-background-color:#f67280; 
+background-color:#f7f6b6;
 color: rgb(78, 3, 74);
 }
 
@@ -52,5 +52,5 @@ color: rgb(78, 3, 74);
 .footer, .Coder{
   font-size: 10px;
   color: rgb(78, 3, 74);
-  background-color: #f67280 !important; 
+  background-color: #f7f6b6 !important; 
 }
