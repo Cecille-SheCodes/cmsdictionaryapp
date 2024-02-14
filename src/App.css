@@ -1,44 +1,56 @@
 body{
- background-color: #282c34;
+ background-color:#61c0bf; 
  text-align: center;
+ 
+}
+.container{
+  max-width: 960px;
+  
+}
+section{
+   background-color:  #fae3d9;
+   display:block;
+   margin: 10px auto 10px auto;
+   padding: 10px;
+  max-width: 600px;
+   border-radius: 4px;
+  box-shadow: 1px 1px 2px 1px rgb(113, 112, 112);
 }
 
-.App {
-  display: block;
-  background-color: #f3e3f6;
-  margin: 50px auto;
-  padding: 10px;
-  max-width: 400px;
-  text-align: center;
-  border-radius: 10px;
-  box-shadow: 2px 3px 2px 3px gray;
-
-   }
-
 .header{
-  font-size: 30px;
+  font-size:25px;
   font-stretch: extra-expanded;
+  color: #6c5b7c; 
   font-weight: 900;
-  padding:40px 5px;
+  padding:20px 5px;
   margin:20px;
-  text-shadow: 2px 3px rgb(210, 199, 231);
+  text-shadow: 1px 1px rgb(210, 199, 231);
 }
 
 input{
-  line-height: 40px;
+  line-height: 35px;
   margin: auto 5px;
+  background-color:#bbded6;
+  color: rgb(78, 3, 74);
 
 }
 
 .btn{
 max-width: 80px;  
 font-size: smaller;
+background-color:#f67280; 
+color: rgb(78, 3, 74);
 }
 
+h1, h5{
+color: rgb(78, 3, 74);
+}
 .Meaning{
   margin-top: 20px;
 }
 
-.footer{
+.footer, .Coder{
   font-size: 10px;
+  color: rgb(78, 3, 74);
+  background-color: #f67280 !important; 
 }

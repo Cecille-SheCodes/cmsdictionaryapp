@@ -17,13 +17,15 @@ export default function Results (props){
 
         <Phonetics phonetics={props.data.phonetics[0]} />
 
+        
         {props.data.meanings.map(function (meaning, index) {
           return (
-            <div key={index}>
+            <section key={index}>
               <Meaning meaning={meaning} />
-            </div>
+            </section>
           );
         })}
+
       </div>
     );}
 
