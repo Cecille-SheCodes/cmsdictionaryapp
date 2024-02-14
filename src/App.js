@@ -7,7 +7,7 @@ function App() {
     <div className="container">
       <section className="main">
         <h1 className="header"> My Dictionary App</h1>
-        <SearchForm defaultKeyword="pet"/>
+        <SearchForm defaultKeyword="flowers"/>
       </section>
 
       <section className="footer">

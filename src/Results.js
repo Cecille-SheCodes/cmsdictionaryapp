@@ -8,7 +8,7 @@ export default function Results (props){
    console.log(props.data.word);
     console.log(props.data.phonetic);
 
-
+  
     if (props.data){
     return (
       <div className="results">

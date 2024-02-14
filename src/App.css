@@ -54,3 +54,7 @@ color: rgb(78, 3, 74);
   color: rgb(78, 3, 74);
   background-color: #f7f6b6 !important; 
 }
+.foto{
+  margin: 5px auto;
+  border-radius: 3px;
+}
