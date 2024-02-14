@@ -3,43 +3,53 @@ import "./App.css";
 import axios from "axios";
 import Results from "./Results";
 
-export default function SearchForm () {
+export default function SearchForm (props) {
+  let [keyword, setKeyword] = useState(props.defaultKeyword);
+  let [results, setResults] = useState(false);
+  let [loaded, setLoaded] = useState(false);
 
-    let [keyword,setKeyword] = useState("");
-    let [results, setResults] = useState(false);
+  function HandleResponse(response) {
+    console.log(response.data);
+    setResults(response.data[0]);
+  }
 
-    function HandleResponse(response){
-        console.log(response.data);
-        setResults(response.data[0]);
-    }
+  function Search(event) {
+      let apiURL = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
+    axios.get(apiURL).then(HandleResponse);
+  }
 
-    function Search(event){
-        event.preventDefault(); 
-        alert(`Searching for ${keyword} definition`);
-        let apiURL =`https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
-        axios.get(apiURL).then(HandleResponse);
-    }
-    
-    function HandleKeyword(event){
-        event.preventDefault(); 
-        console.log(event.target.value);
-        setKeyword(event.target.value);
-    }
-    
-    
+  function handleSubmit(event) {
+       Search();
+  }
+  function HandleKeyword(event) {
+    setKeyword(event.target.value);
+  }
+
+  function load() {
+    setLoaded(true);
+    Search();
+  }
+
+  if (loaded) {
     return (
       <div className="SearchedWord">
-        <form >
+        <form>
           <input
             type="search"
             placeholder="&#128269; Type Word"
             autoFocus={true}
             onChange={HandleKeyword}
+            defaultValue={props.defaultKeyword}
           />
-          <input className="btn" value="Search" onClick={Search}/>
+          <input className="btn" value="Search" onClick={handleSubmit} />
         </form>
-        <br/>
-        <Results data={results}/>
+        <br />
+        <Results data={results} />
       </div>
     );
+  }
+  else{
+    load();
+    return "Loading";
+  }
 }
