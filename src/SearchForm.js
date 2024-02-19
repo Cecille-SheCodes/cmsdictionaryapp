@@ -9,7 +9,33 @@ export default function SearchForm(props) {
   let [results, setResults] = useState(false);
   let [loaded, setLoaded] = useState(false);
   let [photos, setPhotos] = useState(null);
- let [errorMessage, setErrorMessage] = useState("");
+  let [errorMessage, setErrorMessage] = useState("");
+
+  async function Search(event) {
+    let apiURL = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
+
+    try {
+      const response = await axios.get(apiURL);
+      HandleResponse(response);
+
+      // Check if the word exists in the dictionary before making the Pexels API call
+      if (response.data && response.data.length > 0) {
+        let Pexelsapi =
+          "ImQIBhzZLdKJmWznTTZDRszPlAEke7M8I3me9frdrjWd1UE5UchfSQfD";
+        let PexelsapiURL = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
+
+        const pexelsResponse = await axios.get(PexelsapiURL, {
+          headers: { Authorization: `${Pexelsapi}` },
+        });
+        HandlePexelsResponse(pexelsResponse);
+      }
+    } catch (error) {
+      console.log("API Error:", error);
+      setErrorMessage(
+        "An error occurred while fetching the definition. Please try again later."
+      );
+    }
+  }
 
   function HandleResponse(response) {
     console.log(response.data);
@@ -18,40 +44,13 @@ export default function SearchForm(props) {
 
   function HandlePexelsResponse(response) {
     setPhotos(response.data.photos);
-    
-      }
-
-function Search(event) {
-  let apiURL = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
-
-  axios
-    .get(apiURL)
-    .then(HandleResponse)
-    .catch((dictionaryError) => {
-      console.log("Dictionary API Error:", dictionaryError);
-      setErrorMessage(
-        "An error occurred while fetching the definition. Please try again later."
-      );
-    });
-
-  let Pexelsapi = "ImQIBhzZLdKJmWznTTZDRszPlAEke7M8I3me9frdrjWd1UE5UchfSQfD";
-  let PexelsapiURL = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
-
-  axios
-    .get(PexelsapiURL, { headers: { Authorization: `${Pexelsapi}` } })
-    .then(HandlePexelsResponse)
-    .catch((pexelsError) => {
-      console.log("Pexels API Error:", pexelsError);
-      setErrorMessage(
-        "An error occurred while fetching the definition. Please try again later."
-      );
-    });
-}
-
+  }
 
   function handleSubmit(event) {
+    event.preventDefault();
     Search();
   }
+
   function HandleKeyword(event) {
     setKeyword(event.target.value);
   }
@@ -74,17 +73,20 @@ function Search(event) {
           />
           <input className="btn" value="Search" onClick={handleSubmit} />
         </form>
-              <p className="text-white"><em>ex. common nouns, adjectives, verbs</em></p>
+        <p className="text-white">
+          <em>ex. common nouns, adjectives, verbs</em>
+        </p>
         <Results data={results} />
-        <Photos photos={photos} keyword={keyword} />
+        <Photos photos={photos} />
       </div>
     );
-  } 
-  else {
+  } else {
     try {
       load();
       return (
-        <div>{errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}</div>
+        <div>
+          {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
+        </div>
       );
     } catch (error) {
       console.log(error.message);
