@@ -7,7 +7,7 @@ function App() {
     <div className="container">
       <section className="main">
         <h1 className="header"> My Dictionary App</h1>
-        <SearchForm defaultKeyword="flowers"/>
+        <SearchForm defaultKeyword="flowers" />
       </section>
 
       <section className="footer">
@@ -23,7 +23,7 @@ function App() {
         and open-sourced in{" "}
         <a
           className="Coder"
-          href="https://github.com/Cecille-SheCodes/revisedcmsweatherapp"
+          href="https://github.com/Cecille-SheCodes/cmsdictionaryapp"
           target="_blank"
           rel="noopener noreferrer"
         >
